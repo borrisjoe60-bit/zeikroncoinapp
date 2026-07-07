@@ -1,0 +1,16 @@
+{
+  "name": "zeikroncoin-contracts",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.ts --network polygon"
+  },
+  "devDependencies": {
+    "hardhat": "^2.24.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "typescript": "^5.7.0",
+    "ts-node": "^10.9.2",
+    "dotenv": "^16.4.0"
+  }
+}
