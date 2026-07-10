@@ -1,18 +1,24 @@
 import { Router } from "express";
+import prisma from "../prisma/client";
 
 const router = Router();
 
-router.post("/register", (req, res) => {
-  res.json({
-    success: true,
-    message: "User registration endpoint"
+router.post("/register", async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await prisma.user.create({
+    data: {
+      email,
+      password,
+    },
   });
+
+  res.json(user);
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   res.json({
-    success: true,
-    message: "User login endpoint"
+    message: "Login coming next"
   });
 });
 
