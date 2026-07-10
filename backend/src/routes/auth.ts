@@ -2,27 +2,17 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/register", async (req, res) => {
-  const { email } = req.body;
-
-  res.status(201).json({
+router.post("/register", (req, res) => {
+  res.json({
     success: true,
-    message: "User registered successfully",
-    user: {
-      email
-    }
+    message: "User registration endpoint"
   });
 });
 
-router.post("/login", async (req, res) => {
-  const { email } = req.body;
-
+router.post("/login", (req, res) => {
   res.json({
     success: true,
-    token: "sample-jwt-token",
-    user: {
-      email
-    }
+    message: "User login endpoint"
   });
 });
 
