@@ -1,4 +1,4 @@
-import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
       >
         Connect Wallet
       </button>
+      <Analytics />
     </div>
   );
 }
