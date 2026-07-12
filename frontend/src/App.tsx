@@ -39,7 +39,7 @@ const App: FC<AppProps> = () => {
   // Memoize button click handler
   const handleConnectWallet = useCallback(async () => {
     console.log('Wallet connection initiated');
-    // TODO: Implement wallet connection logic here
+    
     
     // Track event in Vercel Analytics
     if (window && 'gtag' in window) {
