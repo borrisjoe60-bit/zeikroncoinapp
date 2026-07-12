@@ -1,28 +1,23 @@
-name: NodeJS with Webpack
+- name: Install frontend
+  working-directory: frontend
+  run: npm install
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+- name: Build frontend
+  working-directory: frontend
+  run: npm run build
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+- name: Install backend
+  working-directory: backend
+  run: npm install
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
+- name: Build backend
+  working-directory: backend
+  run: npm run build
 
-    steps:
-    - uses: actions/checkout@v4
+- name: Install contracts
+  working-directory: contracts
+  run: npm install
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm install
-        npx webpack
+- name: Test contracts
+  working-directory: contracts
+  run: npx hardhat test
