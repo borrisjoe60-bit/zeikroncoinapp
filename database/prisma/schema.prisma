@@ -8,8 +8,39 @@ datasource db {
 }
 
 model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  password      String
+  walletAddress String?  @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  transactions  Transaction[]
+  portfolios    Portfolio[]
+}
+
+model Transaction {
   id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  from      String
+  to        String
+  amount    Float
+  token     String   @default("ZKC")
+  hash      String?  @unique
+  status    String   @default("pending")
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([hash])
+}
+
+model Portfolio {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  zkdBalance      Float    @default(0)
+  totalValue      Float    @default(0)
+  usdValue        Float    @default(0)
+  lastUpdated     DateTime @default(now()) @updatedAt
 }
