@@ -1,5 +1,6 @@
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Extract styles outside component to prevent re-creation
 const CONTAINER_STYLE: React.CSSProperties = {
@@ -46,7 +47,7 @@ const App: FC<AppProps> = () => {
     }
   }, []);
 
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div style={CONTAINER_STYLE}>
@@ -68,6 +69,7 @@ const App: FC<AppProps> = () => {
       </button>
 
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
