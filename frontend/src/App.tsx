@@ -1,7 +1,8 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <div>
@@ -9,6 +10,7 @@ function App() {
         <p>Welcome to Zeikroncoin</p>
       </div>
       {import.meta.env.PROD && <Analytics />}
+      {import.meta.env.PROD && <SpeedInsights />}
     </>
   );
 }
