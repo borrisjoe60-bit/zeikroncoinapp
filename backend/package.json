@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "prisma generate --schema=../database/prisma/schema.prisma && tsc",
+    "build": "prisma generate --schema=prisma/schema.prisma && tsc",
     "start": "node dist/server.js",
-    "postinstall": "prisma generate --schema=../database/prisma/schema.prisma"
+    "postinstall": "prisma generate --schema=prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^6.0.0",
