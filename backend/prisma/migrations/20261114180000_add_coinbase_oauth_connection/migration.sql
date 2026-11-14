@@ -1,3 +1,6 @@
+ALTER TABLE "User" ADD COLUMN IF NOT EXISTS "firstName" TEXT;
+ALTER TABLE "User" ADD COLUMN IF NOT EXISTS "lastName" TEXT;
+
 CREATE TABLE "CoinbaseOAuthConnection" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
